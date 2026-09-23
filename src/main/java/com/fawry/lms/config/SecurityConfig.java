@@ -10,6 +10,8 @@ import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
+import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.nimbusds.jose.jwk.JWKSet;
@@ -21,7 +23,6 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -31,12 +32,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableMethodSecurity 
 public class SecurityConfig {
     @Bean 
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
+    AuthenticationManager authenticationManager(
         UserDetailsService userDetailsService,
         PasswordEncoder passwordEncoder
     ) {
@@ -46,21 +47,33 @@ public class SecurityConfig {
     }
 
     @Bean 
+    JwtAuthenticationConverter jwtAuthenticationConverter() {
+        JwtGrantedAuthoritiesConverter converter = new JwtGrantedAuthoritiesConverter();
+
+        converter.setAuthoritiesClaimName("role");
+        converter.setAuthorityPrefix("");
+
+        JwtAuthenticationConverter jwtConverter = new JwtAuthenticationConverter();
+        jwtConverter.setJwtGrantedAuthoritiesConverter(converter);
+        return jwtConverter;
+    }
+
+    @Bean 
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-        .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()))
+        .oauth2ResourceServer(oauth -> oauth.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())))
         .build();
     }
 
     @Bean 
-    public JwtDecoder jwtDecoder(RSAPublicKey publicKey) {
+    JwtDecoder jwtDecoder(RSAPublicKey publicKey) {
         return NimbusJwtDecoder.withPublicKey(publicKey).build();
     }
 
     @Bean 
-    public JwtEncoder jwtEncoder(RSAPublicKey publicKey, RSAPrivateKey privateKey) {
+    JwtEncoder jwtEncoder(RSAPublicKey publicKey, RSAPrivateKey privateKey) {
         RSAKey key = new RSAKey.Builder(publicKey).privateKey(privateKey).build();
 
         JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(key));

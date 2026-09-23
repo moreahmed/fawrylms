@@ -21,11 +21,14 @@ public class JwtService {
 
     public String generateToken (Authentication authentication) {
         Instant now = Instant.now();
+        String role = authentication.getAuthorities().iterator().next().getAuthority();
+
         JwtClaimsSet claims = JwtClaimsSet.builder()
             .issuer("fawry")
             .subject(authentication.getName())
             .issuedAt(now)
             .expiresAt(now.plus(1, ChronoUnit.HOURS))
+            .claim("role", role)
             .build();
 
         JwsHeader header = JwsHeader.with(SignatureAlgorithm.RS256).build();

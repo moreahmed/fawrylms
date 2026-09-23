@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration 
 public class JwtConfig {
     @Bean 
-    public RSAPublicKey publicKey() throws Exception {
+    RSAPublicKey publicKey() throws Exception {
         String key = Files.readString(Path.of("src/main/resources/certs/public.pem"));
         
         key = key
@@ -33,7 +33,7 @@ public class JwtConfig {
     }
 
     @Bean
-    public RSAPrivateKey privateKey() throws Exception {
+    RSAPrivateKey privateKey() throws Exception {
         String key = Files.readString(
             Path.of("src/main/resources/certs/private.pem")
         );
