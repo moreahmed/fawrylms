@@ -5,4 +5,5 @@ package com.fawry.lms.instructors;
  */
 public class AddInstructorRequest {
     public String name;
+    public Long departmentId;
 }

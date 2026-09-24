@@ -35,10 +35,53 @@ public class Course {
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "prerequisite_id")
-    @Column
     private Course prerequisite;
 
     @ManyToMany (fetch = FetchType.LAZY)
     @JoinTable (name = "instructors_courses", joinColumns = @JoinColumn (name = "course_id"), inverseJoinColumns = @JoinColumn (name = "instructor_id"))
     private List<Instructor> instructors;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public LocalDate getIssuedAt() {
+        return issuedAt;
+    }
+
+    public void setIssuedAt(LocalDate issuedAt) {
+        this.issuedAt = issuedAt;
+    }
+
+    public Course getPrerequisite() {
+        return prerequisite;
+    }
+
+    public void setPrerequisite(Course prerequisite) {
+        this.prerequisite = prerequisite;
+    }
+
+    public List<Instructor> getInstructors() {
+        return instructors;
+    }
+
+    public void setInstructors(List<Instructor> instructors) {
+        this.instructors = instructors;
+    }
 }
