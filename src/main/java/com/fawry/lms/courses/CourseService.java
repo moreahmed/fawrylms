@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.fawry.lms.instructors.Instructor;
 import com.fawry.lms.instructors.InstructorRepository;
+import com.fawry.lms.shared.errors.BadRequestError;
 import com.fawry.lms.shared.errors.NotFoundError;
 
 @Service
@@ -47,6 +48,14 @@ public class CourseService {
     private void updateCourse(Course course, CourseRequest request) {
         course.setName(request.name);
         course.setCode(request.code);
+        if (request.hours != null && request.hours < 1) {
+            throw new BadRequestError("course hours must be at least 1");
+        }
+        if (request.hours != null) {
+            course.setHours(request.hours);
+        } else if (course.getId() == null) {
+            course.setHours(3);
+        }
         course.setIssuedAt(request.issuedAt);
         course.setPrerequisite(request.prerequisiteId == null ? null : getCourse(request.prerequisiteId));
 

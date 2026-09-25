@@ -6,6 +6,7 @@ import java.util.List;
 public class CourseRequest {
     public String name;
     public String code;
+    public Integer hours;
     public LocalDate issuedAt;
     public Long prerequisiteId;
     public List<Long> instructorIds;

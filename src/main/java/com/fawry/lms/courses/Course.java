@@ -30,6 +30,9 @@ public class Course {
     @Column (nullable = false)
     private String code;
 
+    @Column (nullable = false, columnDefinition = "integer default 3")
+    private int hours = 3;
+
     @Column
     private LocalDate issuedAt;
 
@@ -59,6 +62,14 @@ public class Course {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
     }
 
     public LocalDate getIssuedAt() {
