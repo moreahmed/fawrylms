@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/departments/{{DEPARTMENT_ID}}"
+method: PUT
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"name":"Computer Science and Engineering"}'}
+examples: ./.resources/update-department.resources/examples
+order: 4000

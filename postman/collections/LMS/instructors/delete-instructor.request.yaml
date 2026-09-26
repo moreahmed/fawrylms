@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{HOST}}/instructors/{{INSTRUCTOR_ID}}"
+method: DELETE
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+examples: ./.resources/delete-instructor.resources/examples
+order: 5000

@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/departments"
+method: POST
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"name":"Computer Science"}'}
+examples: ./.resources/create-department.resources/examples
+order: 3000

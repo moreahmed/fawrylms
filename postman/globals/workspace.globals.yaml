@@ -1,0 +1,2 @@
+name: Globals
+values: [{key: HOST, value: "http://localhost:8080", enabled: true}, {key: TOKEN, value: "", enabled: true}, {key: STUDENT_USERNAME, value: ahmed, enabled: true}, {key: STUDENT_PASSWORD, value: ahmed123, enabled: true}, {key: DEPARTMENT_ID, value: "1", enabled: true}, {key: INSTRUCTOR_ID, value: "1", enabled: true}, {key: COURSE_ID, value: "1", enabled: true}, {key: STUDENT_ID, value: "1", enabled: true}, {key: ENROLLMENT_ID, value: "1", enabled: true}, {key: SEMESTER_ID, value: "1", enabled: true}]

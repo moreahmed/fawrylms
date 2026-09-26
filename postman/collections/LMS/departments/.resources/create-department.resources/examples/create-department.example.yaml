@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/departments", method: POST, body: {type: json, content: '{"name":"Computer Science"}'}}
+response: {statusCode: 200, statusText: OK, headers: {content-type: application/json}, body: {type: json, content: '{"id":1,"name":"Computer Science"}'}}
+order: 1000

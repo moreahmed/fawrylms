@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/api/auth/admin/register"
+method: POST
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"username":"instructor.demo","password":"change-me","role":"INSTRUCTOR"}'}
+examples: ./.resources/admin-register.resources/examples
+order: 3000

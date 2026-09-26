@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{HOST}}/departments/{{DEPARTMENT_ID}}"
+method: GET
+examples: ./.resources/get-department.resources/examples
+order: 2000

@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/semester/{{SEMESTER_ID}}"
+method: PUT
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"semesterName":"Fall 2026","startsAt":"2026-09-01","endsAt":"2026-12-31","maxHours":18,"maxFailedAttempts":3}'}
+examples: ./.resources/update-semester.resources/examples
+order: 4000

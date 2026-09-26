@@ -1,0 +1,5 @@
+workspace:
+  id: 685abe48-6116-491f-b2fd-85a908b46c60
+cloudResources:
+  collections:
+    ../postman/collections/LMS: 26041655-0ae37759-5507-4411-bb18-0554140507d1

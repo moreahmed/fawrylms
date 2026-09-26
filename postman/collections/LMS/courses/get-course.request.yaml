@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{HOST}}/courses/{{COURSE_ID}}"
+method: GET
+examples: ./.resources/get-course.resources/examples
+order: 2000

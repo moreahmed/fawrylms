@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{HOST}}/instructors/{{INSTRUCTOR_ID}}"
+method: GET
+examples: ./.resources/get-instructor.resources/examples
+order: 2000

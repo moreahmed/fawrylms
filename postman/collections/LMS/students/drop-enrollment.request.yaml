@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{HOST}}/students/me/enrollments/{{ENROLLMENT_ID}}"
+method: DELETE
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+examples: ./.resources/drop-enrollment.resources/examples
+order: 4000

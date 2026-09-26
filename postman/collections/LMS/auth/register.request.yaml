@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{HOST}}/api/auth/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"username\": \"ahmed\",\r
+
+    \    \"password\": \"ahmed123\"\r
+
+    }"
+examples: ./.resources/register.resources/examples
+order: 1000

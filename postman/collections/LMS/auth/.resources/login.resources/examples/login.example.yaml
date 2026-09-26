@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/api/auth/login", method: POST, body: {type: json, content: '{"username":"{{STUDENT_USERNAME}}","password":"{{STUDENT_PASSWORD}}"}'}}
+response: {statusCode: 200, statusText: OK, headers: {content-type: application/json}, body: {type: json, content: '{"token":"<JWT>"}'}}
+order: 1000

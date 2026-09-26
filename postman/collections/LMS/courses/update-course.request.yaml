@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/courses/{{COURSE_ID}}"
+method: PUT
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"name":"Introduction to Computing","code":"CS101","hours":4,"issuedAt":"2026-09-01","prerequisiteId":null,"instructorIds":[{{INSTRUCTOR_ID}}]}'}
+examples: ./.resources/update-course.resources/examples
+order: 4000

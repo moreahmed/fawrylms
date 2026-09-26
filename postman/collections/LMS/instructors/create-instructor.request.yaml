@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/instructors"
+method: POST
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"name":"Dr. Sara Hassan","departmentId":{{DEPARTMENT_ID}}}'}
+examples: ./.resources/create-instructor.resources/examples
+order: 3000

@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/health", method: GET}
+response: {statusCode: 200, statusText: OK, headers: {content-type: text/plain}, body: {type: text, content: Fawry is up}}
+order: 1000

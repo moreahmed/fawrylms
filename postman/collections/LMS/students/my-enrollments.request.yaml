@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{HOST}}/students/me/enrollments"
+method: GET
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+examples: ./.resources/my-enrollments.resources/examples
+order: 2000

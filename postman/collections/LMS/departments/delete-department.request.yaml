@@ -1,0 +1,6 @@
+$kind: http-request
+url: "{{HOST}}/departments/{{DEPARTMENT_ID}}"
+method: DELETE
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+examples: ./.resources/delete-department.resources/examples
+order: 5000

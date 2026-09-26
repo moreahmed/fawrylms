@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/courses/{{COURSE_ID}}", method: PUT, body: {type: json, content: '{"name":"Introduction to Computing","code":"CS101","hours":4,"issuedAt":"2026-09-01","prerequisiteId":null,"instructorIds":[{{INSTRUCTOR_ID}}]}'}}
+response: {statusCode: 200, statusText: OK, headers: {content-type: application/json}, body: {type: json, content: '{"id":1,"name":"Introduction to Computing","code":"CS101","hours":4,"issuedAt":"2026-09-01","prerequisite":null,"instructors":[{"id":1,"name":"Dr. Sara Hassan","department":{"id":1,"name":"Computer Science"}}]}'}}
+order: 1000

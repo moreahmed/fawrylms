@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/courses"
+method: POST
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"name":"Introduction to Computing","code":"CS101","hours":3,"issuedAt":"2026-09-01","prerequisiteId":null,"instructorIds":[{{INSTRUCTOR_ID}}]}'}
+examples: ./.resources/create-course.resources/examples
+order: 3000

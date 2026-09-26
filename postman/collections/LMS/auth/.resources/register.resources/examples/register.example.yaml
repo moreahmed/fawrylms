@@ -1,0 +1,32 @@
+$kind: http-example
+request:
+  url: "{{HOST}}/api/auth/register"
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"username\": \"ahmed\",\r
+
+      \    \"password\": \"ahmed123\"\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    x-content-type-options: nosniff
+    x-xss-protection: "0"
+    cache-control: no-cache, no-store, max-age=0, must-revalidate
+    pragma: no-cache
+    expires: "0"
+    x-frame-options: DENY
+    content-type: text/plain;charset=UTF-8
+    content-length: "28"
+    date: Tue, 22 Sep 2026 08:54:18 GMT
+    keep-alive: timeout=60
+    connection: keep-alive
+  body:
+    type: text
+    content: user registered successfully
+order: 1000

@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/students/enrollments/{{ENROLLMENT_ID}}/result", method: PUT, body: {type: json, content: '{"status":"COMPLETED"}'}}
+response: {statusCode: 200, statusText: OK, headers: {content-type: application/json}, body: {type: json, content: '{"id":1,"studentId":1,"studentUsername":"ahmed","courseId":1,"courseCode":"CS101","courseName":"Introduction to Computing","hours":3,"semesterName":"Fall 2026","attemptNumber":1,"status":"COMPLETED","enrolledAt":"2026-09-26T10:00:00","completedAt":"2026-09-26T10:30:00"}'}}
+order: 1000

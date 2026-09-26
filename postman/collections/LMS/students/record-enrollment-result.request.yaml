@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{HOST}}/students/enrollments/{{ENROLLMENT_ID}}/result"
+method: PUT
+headers: [{key: Authorization, value: "Bearer {{TOKEN}}"}]
+body: {type: json, content: '{"status":"COMPLETED"}'}
+examples: ./.resources/record-enrollment-result.resources/examples
+order: 6000

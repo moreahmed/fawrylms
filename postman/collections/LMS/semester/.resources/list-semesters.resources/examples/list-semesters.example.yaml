@@ -1,0 +1,4 @@
+$kind: http-example
+request: {url: "{{HOST}}/semester", method: GET}
+response: {statusCode: 200, statusText: OK, headers: {content-type: application/json}, body: {type: json, content: '[{"id":1,"semesterName":"Fall 2026","startsAt":"2026-09-01","endsAt":"2026-12-31","maxHours":18,"maxFailedAttempts":3}]'}}
+order: 1000
